@@ -1,0 +1,14 @@
+source,target,outcome_score
+p1,t1,80
+p1,t4,90
+p2,t1,70
+p2,t2,75
+p3,t4,95
+p4,t1,60
+p4,t2,65
+p5,t1,75
+p5,t4,80
+p6,t4,98
+p7,t1,60
+p7,t3,70
+p8,t4,85
