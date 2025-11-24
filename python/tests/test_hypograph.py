@@ -74,7 +74,7 @@ class TestHypograph(unittest.TestCase):
             {'a': 3, 'b': 6}
         ]
         
-        from hypograph.stats.advanced_hypothesis import correlation_test
+        from hypograph.stats.hypothesis import z_test_density, anova_test, chi_square_test, correlation_test
         corr, p = correlation_test(adapter, "propA", "propB")
         self.assertAlmostEqual(corr, 1.0)
 

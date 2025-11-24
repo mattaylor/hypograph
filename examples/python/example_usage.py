@@ -2,7 +2,7 @@ import os
 from hypograph.adapters.cypher_adapter import CypherAdapter
 from hypograph.stats.inference import calculate_density, get_degree_distribution
 from hypograph.stats.centrality import degree_centrality, pagerank
-from hypograph.stats.advanced_hypothesis import anova_test, correlation_test
+from hypograph.stats.hypothesis import z_test_density, anova_test, correlation_test
 from hypograph.importer import CSVImporter
 
 def main():

@@ -14,5 +14,9 @@ declare module 'jstat' {
         chisquare: {
             cdf(x: number, df: number): number;
         };
+        beta: {
+            cdf(x: number, alpha: number, beta: number): number;
+            inv(p: number, alpha: number, beta: number): number;
+        };
     };
 }

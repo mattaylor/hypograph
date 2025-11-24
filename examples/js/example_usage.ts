@@ -2,7 +2,7 @@ import { CypherAdapter } from '../../js/src/adapters/CypherAdapter';
 import { CSVImporter } from '../../js/src/importer';
 import { calculateDensity } from '../../js/src/stats/inference';
 import { degreeCentrality } from '../../js/src/stats/centrality';
-import { anovaTest, correlationTest } from '../../js/src/stats/advancedHypothesis';
+import { anovaTest, correlationTest } from '../../js/src/stats/hypothesis';
 
 async function main() {
     const uri = process.env.DB_URI || "bolt://localhost:7687";

@@ -1,5 +1,6 @@
 import { CypherAdapter } from '../adapters/CypherAdapter';
 import { calculateDensity } from '../stats/inference';
+import { zTestDensity, anovaTest, chiSquareTest, correlationTest } from '../stats/hypothesis';
 
 // Mocking is a bit more complex in raw TS without jest setup, 
 // so we will create a manual mock class for this basic verification.
@@ -44,7 +45,7 @@ async function testDensity() {
         ]
     };
     
-    const { correlationTest } = require('../stats/advancedHypothesis');
+    const { correlationTest } = require('../stats/hypothesis');
     const { correlation } = await correlationTest(corrAdapter as any, "propA", "propB");
     
     if (Math.abs(correlation - 1.0) < 0.001) {

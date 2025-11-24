@@ -3,7 +3,5 @@ export * from './adapters/CypherAdapter';
 export * from './adapters/FalkorDBAdapter';
 export * from './stats/inference';
 export * from './stats/hypothesis';
-export * from './stats/community';
-export * from './stats/centrality';
-export * from './stats/advancedHypothesis';
+export * from './stats/bayesian';
 export * from './importer';
