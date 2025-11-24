@@ -2,7 +2,7 @@ import { CypherAdapter } from '../../js/src/adapters/CypherAdapter';
 import { CSVImporter } from '../../js/src/importer';
 import { calculateDensity } from '../../js/src/stats/inference';
 import { degreeCentrality } from '../../js/src/stats/centrality';
-import { anovaTest, correlationTest } from '../../js/src/stats/hypothesis';
+import { anovaTest, correlationTest, chiSquareTest } from '../../js/src/stats/hypothesis';
 
 async function main() {
     const uri = process.env.DB_URI || "bolt://localhost:7687";
@@ -77,6 +77,10 @@ async function main() {
         // ANOVA: Recovery Score by Gender
         const { fStat, pValue: pAnova } = await anovaTest(adapter, "gender", "recovery_score", "n:Patient");
         console.log(`ANOVA (Recovery by Gender): F=${fStat.toFixed(4)}, p=${pAnova.toFixed(4)}`);
+
+        // Chi-Square: Region vs Gender
+        const { chi2, pValue: pChi2 } = await chiSquareTest(adapter, "region", "gender", "n:Patient");
+        console.log(`Chi-Square (Region vs Gender): Chi2=${chi2.toFixed(4)}, p=${pChi2.toFixed(4)}`);
 
     } catch (error) {
         console.error("Error:", error);

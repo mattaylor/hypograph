@@ -2,7 +2,7 @@ import os
 from hypograph.adapters.cypher_adapter import CypherAdapter
 from hypograph.stats.inference import calculate_density, get_degree_distribution
 from hypograph.stats.centrality import degree_centrality, pagerank
-from hypograph.stats.hypothesis import z_test_density, anova_test, correlation_test
+from hypograph.stats.hypothesis import z_test_density, anova_test, correlation_test, chi_square_test
 from hypograph.importer import CSVImporter
 
 def main():
@@ -74,6 +74,10 @@ def main():
         # ANOVA: Recovery Score by Gender
         f_stat, p_val_anova = anova_test(adapter, "gender", "recovery_score", node_filter="n:Patient")
         print(f"ANOVA (Recovery by Gender): F={f_stat:.4f}, p={p_val_anova:.4f}")
+
+        # Chi-Square: Region vs Gender (Categorical Association)
+        chi2, p_chi2, dof, expected = chi_square_test(adapter, "region", "gender", node_filter="n:Patient")
+        print(f"Chi-Square (Region vs Gender): Chi2={chi2:.4f}, p={p_chi2:.4f}")
 
         adapter.close()
         
